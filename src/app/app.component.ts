@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
 
+
+// import Tarea from './tarea.model'; // export default obligatorio en la entidad
+import { Tarea } from './tarea.model'; // sin el default, funciona
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -7,7 +11,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   id:number = 0;
-  public tareas:Array<{id: number, descripcion: string}> = [];
+  public tareas:Tarea[] = [];
 
   public agregaTarea(event){
     const formulario = event.target.parentElement;
@@ -21,7 +25,7 @@ export class AppComponent {
     formulario.reset()
   }
 
-  public listarTodos():Array<{id: number, descripcion: string}> {
+  public listarTodos():Tarea[] {
     return this.tareas;
   }
 
